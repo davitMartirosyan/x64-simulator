@@ -17,9 +17,9 @@ This C++ project is a comprehensive x64 architecture simulator designed to facil
 ## Getting Started
 
 1. **Clone the Repository:**
-   ```bash
+```
    git clone https://github.com/davitmartirosyan/x64-simulator.git
-
+```
 
 cd x64-simulator
 make
