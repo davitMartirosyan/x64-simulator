@@ -1,6 +1,6 @@
 NAME = simulator
 CPP = c++
-CPP_FLAGS = -I headers/ -std=c++17 -Wall -Wextra -Werror
+CPP_FLAGS = -I headers/ -std=c++17 #-Wall -Wextra -Werror
 SRC  = $(wildcard src/*/*.cpp src/*.cpp)
 OBJ = $(SRC:.cpp=.o)
 

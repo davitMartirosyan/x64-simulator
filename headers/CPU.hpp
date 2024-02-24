@@ -1,7 +1,9 @@
 #ifndef CPU_HPP
 #define CPU_HPP
-
-class CPU : public ALU
+#include "blink.hpp"
+#include "ALU.hpp"
+#include "CU.hpp"
+class CPU : public ALU, public CU
 {
     public:
         CPU( void );
@@ -25,7 +27,8 @@ class CPU : public ALU
         int xmm[8];
 	private:
 		int rflags[16];
-}
+    private:
+};
 // inherit from CU (Control Unit) class
 // inherit from ALU (Arithmetic Control Unit) class
 
