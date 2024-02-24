@@ -3,4 +3,5 @@
         "string": "cpp",
         "iostream": "cpp"
     }
+    "editor.cursorSmoothCaretAnimation": true
 }

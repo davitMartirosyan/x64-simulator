@@ -1,20 +1,41 @@
-NAME = simulator
-CPP = c++
-CPP_FLAGS = -I headers/ -std=c++17 #-Wall -Wextra -Werror
-SRC  = $(wildcard src/*/*.cpp src/*.cpp)
-OBJ = $(SRC:.cpp=.o)
+NAME		= Simulator
 
-all: $(NAME)
+SRC_DIR 	= src
+SUBDIRS 	= Lexical_analyse CPU RAM ALU CU Structs_init
+SRCDIRS 	:= $(addprefix $(SRC_DIR)/, $(SUBDIRS))
+SRC			:= $(notdir $(foreach dir, $(SRCDIRS), $(wildcard $(dir)/*.cpp))) $(notdir $(SRC_DIR)/main.cpp)
 
-$(NAME) : $(OBJ)
-	$(CPP) $(CPP_FLAGS) $(OBJ) -o $(NAME)
+OBJ_DIR 	= obj
+OBJ			= $(patsubst %.cpp, $(OBJ_DIR)/%.o, $(SRC))
+
+CC			= c++ -std=c++17 $(INCLUDES) $(CPP_CFLAGS)
+HEADERS 	= $(wildcard headers/*.hpp)
+INCLUDES	= -Iheaders
+CPP_CFLAGS	= #-Wall -Wextra -Werror
+MK			= mkdir -p
 
 
-%.o : %.cpp
-	$(CPP) $(CPP_FLAGS) -c $< -o $@
+all: $(OBJ_DIR) $(NAME)
 
-fclean:
-	rm -rf $(NAME) $(OBJ)
+$(OBJ_DIR) :
+		@$(MK) $(OBJ_DIR)
 
-push:
-	git add . && git commit -m "$(commit)" && git push
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp $(HEADERS) Makefile
+	$(CC) -c $< -o $@
+
+$(OBJ_DIR)/%.o: $(SRC_DIR)/*/%.cpp $(HEADERS) Makefile
+	$(CC) -c $< -o $@
+
+$(NAME): $(OBJ) $(HEADERS)
+	$(CC) -o $(NAME) $(OBJ)
+
+clean:
+	@rm -f $(OBJ)
+	@rm -rf $(OBJ_DIR)
+	
+fclean: clean
+	@rm -f $(NAME)
+
+re: fclean all
+
+.PHONY: all clean fclean re
