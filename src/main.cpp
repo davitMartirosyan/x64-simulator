@@ -8,6 +8,8 @@ int main(int ac, char **av)
 {
     (void)ac;
     (void)av;
+
+
     std::cout << "BOOT Loader" << std::endl;
     CPU cpu;
     RAM ram;
@@ -18,6 +20,5 @@ int main(int ac, char **av)
 
     std::cout << "Tok : " << pars->Token << ", Prioryti : " << pars->Priority << ", Enum : " << pars->type << std::endl;
     std::cout << "Tok : " << pars->next->Token << ", Prioryti : " << pars->next->Priority << ", Enum : " << pars->next->type << std::endl;
-    
     return (0);
 }
