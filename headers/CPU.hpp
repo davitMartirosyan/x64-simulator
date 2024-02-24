@@ -1,7 +1,7 @@
 #ifndef CPU_HPP
 #define CPU_HPP
 
-class CPU
+class CPU : public ALU
 {
     public:
         CPU( void );
@@ -23,6 +23,8 @@ class CPU
         int r[7];
     private:
         int xmm[8];
+	private:
+		int rflags[16];
 }
 // inherit from CU (Control Unit) class
 // inherit from ALU (Arithmetic Control Unit) class
