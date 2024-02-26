@@ -17,7 +17,8 @@ typedef enum e_type
 	MEM,
 	COMMA,
 	LITERAL,
-	NEW_LINE
+	NEW_LINE,
+	ERROR
 }	I_type;
 
 /* Instruction Set*/
