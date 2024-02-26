@@ -31,7 +31,8 @@ Analyse* lexical_analyse(std::string filename)
 			check_instructions(&list, tok.substr(0, pos));
 			check_instructions(&list, tok.substr(pos, 1));
 			check_instructions(&list, tok.substr(pos + 1, tok.length()));
-			check_instructions(&list, "\n");
+			if (tok[tok.length()] != '\0')
+				check_instructions(&list, "\n");
 			continue ;
 		}
 		check_instructions(&list, tok.substr(0, tok.length()));
