@@ -5,7 +5,7 @@ Analyse* lstadd(std::string	Tok, int Priority, I_type type)
 {
 	Analyse	*res;
 
-	if (!(res = (Analyse *)malloc(sizeof(Analyse))))
+	if (!(res = new Analyse))
 		return NULL;
 	res->Priority = Priority;
 	res->Token = Tok;

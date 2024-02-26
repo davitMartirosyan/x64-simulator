@@ -8,7 +8,7 @@ SRC			:= $(notdir $(foreach dir, $(SRCDIRS), $(wildcard $(dir)/*.cpp))) $(notdir
 OBJ_DIR 	= obj
 OBJ			= $(patsubst %.cpp, $(OBJ_DIR)/%.o, $(SRC))
 
-CC			= c++ -std=c++17 $(INCLUDES) $(CPP_CFLAGS)
+CC			= c++ -std=c++17 $(INCLUDES) $(CPP_CFLAGS) -g3
 HEADERS 	= $(wildcard headers/*.hpp)
 INCLUDES	= -Iheaders
 CPP_CFLAGS	= #-Wall -Wextra -Werror

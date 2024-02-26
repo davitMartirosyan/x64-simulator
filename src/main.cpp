@@ -14,11 +14,33 @@ int main(int ac, char **av)
     CPU cpu;
     RAM ram;
     Analyse *pars;
+    Instruction *Set;
 
-    lstback(&pars, lstadd("Hello", 2, MOV));
-    lstback(&pars, lstadd("World", 1, ADD));
+    lstback(&pars, lstadd("mov", 2, MOV));
+    lstback(&pars, lstadd("rax", 1, REG));
+    lstback(&pars, lstadd("5", 0, LITERAL));
+    lstback(&pars, lstadd("\n", 0, NEW_LINE));
 
-    std::cout << "Tok : " << pars->Token << ", Prioryti : " << pars->Priority << ", Enum : " << pars->type << std::endl;
-    std::cout << "Tok : " << pars->next->Token << ", Prioryti : " << pars->next->Priority << ", Enum : " << pars->next->type << std::endl;
+    lstback(&pars, lstadd("mov", 2, MOV));
+    lstback(&pars, lstadd("rbx", 1, REG));
+    lstback(&pars, lstadd("10", 0, LITERAL));
+    lstback(&pars, lstadd("\n", 0, NEW_LINE));
+
+    lstback(&pars, lstadd("add", 2, ADD));
+    lstback(&pars, lstadd("rax", 1, REG));
+    lstback(&pars, lstadd("rbx", 1, REG));
+    lstback(&pars, lstadd("\n", 0, NEW_LINE));
+
+    Analyse *tmp = pars;
+    lstback(&Set, lstadd(tmp));
+    std::cout << Set->line[0] + "  " << Set->line[1] + " " << Set->line[2] << Set->line[3];
+    for (int i = 0; i < 4; ++i)
+        tmp = tmp->next;
+    lstback(&Set, lstadd(tmp));
+    std::cout << Set->next->line[0] + "  " << Set->next->line[1] + " " << Set->next->line[2] << Set->next->line[3];
+    for (int i = 0; i < 4; ++i)
+        tmp = tmp->next;
+    lstback(&Set, lstadd(tmp));
+    std::cout << Set->next->next->line[0] + "  " << Set->next->next->line[1] + " " << Set->next->next->line[2] << Set->next->next->line[3];
     return (0);
 }

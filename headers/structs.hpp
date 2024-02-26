@@ -2,6 +2,7 @@
 # define STRUCTS_HPP
 
 #include <iostream>
+#include <vector>
 
 typedef enum e_type
 {
@@ -24,7 +25,7 @@ typedef enum e_type
 /* str::string[n] ->  mov rax  5 */
 typedef struct s_Instruction
 {
-	/* data */
+	std::vector <std::string> line;
 	struct s_Instruction *next;
 	struct s_Instruction *prev;
 }	Instruction;
@@ -41,7 +42,7 @@ typedef struct s_Analyse
 void			lstback(Instruction **pars, Instruction* add);
 int				lstsize(Instruction *lst);
 Instruction*	lstlast(Instruction *lst);
-Instruction*	lstadd( void );
+Instruction*	lstadd(Analyse *list);;
 
 void		lstback(Analyse **pars, Analyse* add);
 int			lstsize(Analyse *lst);

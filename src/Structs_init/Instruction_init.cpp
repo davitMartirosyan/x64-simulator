@@ -3,14 +3,18 @@
 void			lstback(Instruction **pars, Instruction *add);
 int				lstsize(Instruction *lst);
 Instruction*	lstlast(Instruction *lst);
-Instruction*	lstadd( void );
+Instruction*	lstadd(Analyse *list);
 
-Instruction* lstadd( void )
+Instruction* lstadd(Analyse *list)
 {
 	Instruction	*res;
 
-	if (!(res = (Instruction *)malloc(sizeof(Instruction))))
+	if (!(res = new Instruction))
 		return NULL;
+	res->line.push_back(list->Token);
+	res->line.push_back(list->next->Token);
+	res->line.push_back(list->next->next->Token);
+	res->line.push_back(list->next->next->next->Token);
 	res->next = NULL;
 	res->prev = NULL;
 	return res;
