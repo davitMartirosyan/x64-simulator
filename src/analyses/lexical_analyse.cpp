@@ -1,4 +1,4 @@
-#include "Lexical.hpp"
+#include "Analyses.hpp"
 #include <fstream>
 
 void check_instructions(Analyse** list, std::string tok);
@@ -40,12 +40,12 @@ Analyse* lexical_analyse(std::string filename)
 			check_instructions(&list, "\n");
 		tok = "";
 	}
-	for (Analyse *tmp = list; tmp; tmp = tmp->next)
-	{
-		std::cout << "Token : " + tmp->Token;
-		std::cout << "| Priority : " << tmp->Priority;
-		std::cout << "| Type : " << tmp->type << std::endl;
-	}
+	// for (Analyse *tmp = list; tmp; tmp = tmp->next)
+	// {
+	// 	std::cout << "Token : " + tmp->Token;
+	// 	std::cout << "| Priority : " << tmp->Priority;
+	// 	std::cout << "| Type : " << tmp->type << std::endl;
+	// }
 	return list;
 }
 

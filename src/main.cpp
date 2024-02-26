@@ -3,7 +3,7 @@
 #include "RAM.hpp"
 #include "BUS.hpp"
 #include "structs.hpp"
-#include "Lexical.hpp"
+#include "Analyses.hpp"
 #include <string>
 
 int main(int ac, char **av)
@@ -19,11 +19,11 @@ int main(int ac, char **av)
         std::cout << "Error File Name !!!" << std::endl;
 		return 1;
     }
-    
     std::cout << "BOOT Loader" << std::endl;
     CPU cpu;
     RAM ram;
     Analyse *pars;
 	pars = lexical_analyse(filename);
+	syntax_sematic_analyse(pars);
     return (0);
 }

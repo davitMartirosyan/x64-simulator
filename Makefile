@@ -1,7 +1,7 @@
 NAME		= Simulator
 
 SRC_DIR 	= src
-SUBDIRS 	= Lexical_analyse CPU RAM ALU CU Structs_init
+SUBDIRS 	= analyses CPU RAM ALU CU Structs_init
 SRCDIRS 	:= $(addprefix $(SRC_DIR)/, $(SUBDIRS))
 SRC			:= $(notdir $(foreach dir, $(SRCDIRS), $(wildcard $(dir)/*.cpp))) $(notdir $(SRC_DIR)/main.cpp)
 
