@@ -40,6 +40,11 @@ class CPU : public ALU, public CU
 	private:
 		int rflags[16];
     private:
-};
 
+    private:
+        int cBus;
+    public:
+        int getCBus( void );
+        void setCBus(int cbus);
+};
 #endif

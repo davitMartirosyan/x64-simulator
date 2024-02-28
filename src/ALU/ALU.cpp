@@ -2,7 +2,7 @@
 
 ALU::ALU( void )
 {
-    std::cout << "ALU was added" << std::endl;
+    // std::cout << "ALU was added" << std::endl;
 }
 
 ALU::~ALU()

@@ -18,6 +18,8 @@ class CU
     public:
         CU( void );
         ~CU();
+    public:
+        void decoder(std::string const &instruction);
     private:
         // std::map<std::string, Instruction> instructionSet;
     public:

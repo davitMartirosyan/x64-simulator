@@ -1,5 +1,6 @@
-mov rax,5 mov rbx,6
+mov rax,5 
+mov rbx,6
 add rax,rbx
-incrax
+inc rax
 dec rbx
-add rax,rbxasd
+add rax, rbx

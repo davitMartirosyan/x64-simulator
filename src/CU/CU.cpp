@@ -2,7 +2,7 @@
 
 CU::CU( void )
 {
-    std::cout << "Control Unit Was added" << std::endl;
+    // std::cout << "Control Unit Was added" << std::endl;
 }
 
 CU::~CU()
@@ -60,4 +60,10 @@ void CU::add(long int* mem, int *reg)
 void CU::add(long int* mem1, long int* mem2)
 {
 
+}
+
+
+void CU::decoder(std::string const &instruction)
+{
+    std::cout << instruction << std::endl;
 }
